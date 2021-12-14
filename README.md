@@ -1,4 +1,4 @@
 # aws_GolangScripts
 
-# AWS Linux CLI and Golang SDK for AWS
+Scripts I am working on or have completed. 
 
