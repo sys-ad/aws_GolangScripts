@@ -25,13 +25,19 @@ func main() {
                 
                 uploader := s3manager.NewUploader(sess)
                 
-                f, err := os.Open(somepdf.pdf)
+                f, err := os.Open(somepdf.pdf) // stream mode??
                 if err != nil {
                     return fmt.Errorf("failed to open file %q
                 
                 result, err := uploader.Upload(&s3manager.UploadInput{
                     Bucket: aws.String(myBucket),
                     Key:    aws.String(myString),
-                    Body:  f  
+                    Body:   f,
+        })
+                                      if err != nil {
+                                              return.Errorf("failed to upload file, %v", err)
+                                      }
+                                      fmt.Printf("file uploaded to, %s\n", aws.Stringvalue(result.Location))
+                       // to be continued... 12/13/21'
                 
                                 
