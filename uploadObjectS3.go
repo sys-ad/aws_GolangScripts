@@ -2,13 +2,21 @@ package main
 
 import (
         "os"
-        
+        "io"
+        "path/filepath"
         "github.com/aws/aws-sdk-go/aws"
         "github.com/aws/aws-sdk-go/aws/session"
         "github.com/aws/aws-sdk-go/service/s3"
-  
-         "fmt"
+        "fmt"
+        
 )
+
+const (
+         S3_REGION = "us-east-1"
+         S3_BUCKET = "music-of-pomm"
+         S3_ACL    = "public-read"
+      )
+
 
 func main() {
         sess, err :=session.NewSessionWithOptions(session.Options{
@@ -16,10 +24,9 @@ func main() {
         if err != nil {
                 fmt.Printf("Failed to initialize new session: %v", err)
                 return
-        }
-                
+                }
+        }        
                 uploader := s3manager.NewUploader(sess)
-                
                 f, err := os.Open(somepdf.pdf) // stream mode??
                 if err != nil {
                     return fmt.Errorf("failed to open file %q
@@ -34,7 +41,10 @@ func main() {
                                       }
                                       fmt.Printf("file uploaded to, %s\n", aws.Stringvalue(result.Location))
                        // to be continued... 12/13/21'
-        // -----------------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------------------
         
-        func uploadDataToS3(dir string, svc *s3.S3
+                                      
+  func uploadDataToS3(dir string, svc *s3.S3) {
+      fileList := []string{}
+      filepath.          
                                 
