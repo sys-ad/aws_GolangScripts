@@ -47,7 +47,8 @@ func main() {
                                    Session: sess,
                                    Bucket: S3_BUCKET,
                            }
-                                                          
+                           
+                           err = handler.U
                                                           
                                                           
                                                           
