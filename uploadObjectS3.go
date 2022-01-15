@@ -12,11 +12,6 @@ import (
 
 func main() {
         sess, err :=session.NewSessionWithOptions(session.Options{
-                Profile: "default"
-                Config: aws.Config{
-                        Region: aws.String{"us-east-1"),
-                },
-        })
          
         if err != nil {
                 fmt.Printf("Failed to initialize new session: %v", err)
@@ -39,5 +34,7 @@ func main() {
                                       }
                                       fmt.Printf("file uploaded to, %s\n", aws.Stringvalue(result.Location))
                        // to be continued... 12/13/21'
-                
+        // -----------------------------------------------------------------------------------------
+        
+        func uploadDataToS3(dir string, svc *s3.S3
                                 
