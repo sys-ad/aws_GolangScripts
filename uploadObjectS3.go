@@ -17,6 +17,11 @@ const (
          S3_ACL    = "public-read"
       )
 
+type S3Handler struct {
+        Session *session.Session
+        Bucket string
+}
+
 
 func main() {
         sess, err :=session.NewSessionWithOptions(session.Options{
