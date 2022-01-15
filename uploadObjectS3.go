@@ -24,7 +24,59 @@ type S3Handler struct {
 
 
 func main() {
-        sess, err :=session.NewSessionWithOptions(session.Options{
+        
+        if len(os.Args) != 3 {
+                log.FatalF("usage: %s <filename> <s3-filepath>\n",
+        }
+        filename := os.Args[1]
+        key      := os.Args[2]
+                           
+                           file, err := os.Open(filename)
+                           if err != nil {
+                                   log.Fatalf("os.Open - filename %v, err: %v", filename, err)
+                           }
+                           defer file.Close()
+                           
+                           
+                           sess, err :=session.NewSession(&aws.Config{Region: aws.String(S3_REGION))}
+                           if err != nil {
+                                   log.FatalF("session.NewSession - filename: %v, err: %v", filename, err)
+                           }
+                                                          
+                           handler := S3Handler {
+                                   Session: sess,
+                                   Bucket: S3_BUCKET,
+                           }
+                                                          
+                                                          
+                                                          
+                                                          
+                                                          
+                                                          
+                                                          
+                                                          
+                                                          
+                                                          
+                                                          
+                                                          
+                                                          
+                                                          
+                                                          
+                                                          
+                                                          
+                                                          
+                                                          
+                                                          
+                                                          
+                                                          
+                                                          
+                                            
+                                   
+            
+                                                           
+                                                           
+                                                           
+                                                          
          
         if err != nil {
                 fmt.Printf("Failed to initialize new session: %v", err)
