@@ -44,7 +44,7 @@ func main() {
                            }
                                                           
                            handler := S3Handler {
-                                   Session: sess,
+                               v   Session: sess,
                                    Bucket: S3_BUCKET,
                            }
                            
@@ -55,6 +55,13 @@ func main() {
                            log.Info("UploadFile - success")
                            
 }
+                                                          
+func (h S3Handler) UploadFile(key string, filename string) error {
+        file, err := os.Open(filename)
+        if err != nil {
+                log.FatalF("os.Open - filename: %s, err: %v", filename, err)
+defer file.Close()
+
                                                           
                                                           
                                                           
