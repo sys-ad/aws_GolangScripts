@@ -13,8 +13,8 @@ import (
 
 const (
          S3_REGION = "us-east-1"
-         S3_BUCKET = "music-of-pomm"
-         S3_ACL    = "public-read"
+         S3_BUCKET = ""
+         S3_ACL    = ""
       )
 
 type S3Handler struct {
