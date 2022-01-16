@@ -60,10 +60,33 @@ func (h S3Handler) UploadFile(key string, filename string) error {
         file, err := os.Open(filename)
         if err != nil {
                 log.FatalF("os.Open - filename: %s, err: %v", filename, err)
-defer file.Close()
+        defer file.Close()
+                
+        _, err = s3.New(h.session).PutObject(&s3.PutObjectInput{
+                Bucket:             aws.String(h.Bucket),
+                Key:                aws.String(key),
+                ACL:                aws.String(S3_ACL)
+                Body:               file,
+                ContentDisposition: aws.String("attachment"),
+        })
+        return err
 
-                                                          
-                                                          
+func (h S3Handler) ReadFile(key string) (string, error
+        results, err := s3.New(h.Session).GetObject(&s3.GetObjectInput{
+                Bucket: aws.String(h.bucket),
+                Key:    aws.String(key),
+        })
+        if err != nil {
+                return "", err
+        }
+        defer results.Body.Close()   
+        buf := bytes.NewBuffer(nil)
+        if _, err := io.Copy(buf, results.Body); err != nil {
+                return "", err
+        }
+        return string(buf.Bytes()), nil
+ }
+                                         
                                                           
                                                           
                                                           
