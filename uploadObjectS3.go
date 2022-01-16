@@ -48,9 +48,13 @@ func main() {
                                    Bucket: S3_BUCKET,
                            }
                            
-                           err = handler.U
-                                                          
-                                                          
+                           err = handler.UploadFile(key, filename)
+                           if err != nil {       
+                                   log.FatalF("UploadFile - filename: %v, err: %v", filaname, err)
+                           }
+                           log.Info("UploadFile - success")
+                           
+}
                                                           
                                                           
                                                           
