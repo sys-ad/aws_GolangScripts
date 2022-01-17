@@ -26,7 +26,7 @@ type S3Handler struct {
 func main() {
         
         if len(os.Args) != 3 {
-                log.FatalF("usage: %s <filename> <s3-filepath>\n",
+                log.FatalF("usage: %s <filename> <s3-filepath>\n", filename, err) //
         }
         filename := os.Args[1]
         key      := os.Args[2]
