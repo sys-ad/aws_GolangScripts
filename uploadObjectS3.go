@@ -2,7 +2,7 @@ package main
 
 import (
         "os"
-        "io"
+        "io"ssss
         "path/filepath"
         "github.com/aws/aws-sdk-go/aws"
         "github.com/aws/aws-sdk-go/aws/session"
@@ -111,4 +111,4 @@ func (h S3Handler) UploadFile(key string, filename string) error {
                                                            
                                                            
                                                           
-        
+        d
