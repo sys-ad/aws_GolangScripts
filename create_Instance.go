@@ -7,16 +7,17 @@ import (
   "github.com/aws/aws-sdk-go"
   "github.com/aws/aws-lambda-go/lambda"
   "github.com/session"
+  "github.com/os"
 )
 
 func main() {
   svc := ec2.New(session.New())
   input := &ec2.RunInstancesInput{
-    ImageId:      aws.String(AMI),
-    InstanceType: aws.String(INSTANCE_TYPE),
-    KeyName:      aws.String(KEY_NAME),
-    MaxCount:     aws.Int64(1),
-    MinCount:     aws.Int64(1),
+    ImageId:      os.Getenv("AMI_ID"),
+    InstanceType: os.Getenv("INSTANCE_TYPE"),
+    KeyName:      os.Getenv("KEY_NAME"),
+    MaxCount:     os.Getenv("MaxCount"),
+    MinCount:     os.Getenv("MinCount"),
  }          
   
 }
