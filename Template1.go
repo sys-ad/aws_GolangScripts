@@ -6,5 +6,5 @@ import (
         "fmt"
         "log"
         
-        "github.com/aws/aws-sdk-go-v2/config"
+        "github.com/aws/aws-sdk-go-v2/config" // this package loads configuration
         "github.com/aws/aws-sdk-go-v2/service/s3"
