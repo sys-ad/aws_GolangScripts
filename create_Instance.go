@@ -12,19 +12,20 @@ import (
 
 func main() {
   svc := ec2.New(session.New())
-  input := &ec2.RunInstancesInput{
+}
+
+func Lambda_Handler(ctx context, name event) (string, error) {
+    message := event['message']
+    init_script := `#/bin/bash
+                    sudo yum update -y`
+    Input :=      &ec2.RunInstancesInput{
     ImageId:      os.Getenv("AMI_ID"),
     InstanceType: os.Getenv("INSTANCE_TYPE"),
     KeyName:      os.Getenv("KEY_NAME"),
     MaxCount:     os.Getenv("MaxCount"),
     MinCount:     os.Getenv("MinCount"),
  }          
-  
-}
-
-func Lambda_Handler(ctx context, name event) (string, error) {
-     return 
-     
+    
 }
 
 
