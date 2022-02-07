@@ -12,6 +12,7 @@ import (
 
 func main() {
   svc := ec2.New(session.New())
+  lambda.Start(Lambda_Handler)
 }
 
 func Lambda_Handler(ctx context, name event) (string, error) {
@@ -24,6 +25,7 @@ func Lambda_Handler(ctx context, name event) (string, error) {
     KeyName:      os.Getenv("KEY_NAME"),
     MaxCount:     os.Getenv("MaxCount"),
     MinCount:     os.Getenv("MinCount"),
+    
  }          
     
 }
