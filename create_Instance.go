@@ -27,7 +27,7 @@ func Lambda_Handler(ctx context, name event) (string, error) {
     MinCount:     os.Getenv("MinCount"),
     
     instance_id := input['Instances'][0]['InstanceId']
-             
+    fmt.printLn(instance_id)         
     return instance_id 
  }          
     
