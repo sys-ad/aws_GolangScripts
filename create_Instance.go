@@ -26,6 +26,9 @@ func Lambda_Handler(ctx context, name event) (string, error) {
     MaxCount:     os.Getenv("MaxCount"),
     MinCount:     os.Getenv("MinCount"),
     
+    instance_id := input['Instances'][0]['InstanceId']
+             
+    return instance_id 
  }          
     
 }
